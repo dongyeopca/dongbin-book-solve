@@ -25,7 +25,6 @@ for _ in range(e):
     edges.append((cost,a,b))
 
 edges.sort()
-
 for edge in edges:
     cost,a,b = edge
     if find_parent(parent,a) != find_parent(parent,b):
