@@ -1,0 +1,5 @@
+test = open('write.txt','r+t')
+test.write(input())
+a=test.readline()
+print(a)
+test.close()
