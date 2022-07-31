@@ -1,5 +1,4 @@
-test = open('write.txt','r+t')
-test.write(input())
-a=test.readline()
-print(a)
-test.close()
+import sys
+
+input = sys.stdin.readline
+print(input())
