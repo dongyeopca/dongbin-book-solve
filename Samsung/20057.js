@@ -7,4 +7,6 @@ let input = fs
   .map((e) => e.split(" ").map(Number));
 let n = input.shift()[0];
 let start = parseInt(n / 2);
-console.log(start);
+
+
+function 
