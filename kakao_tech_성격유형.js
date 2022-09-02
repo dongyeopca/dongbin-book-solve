@@ -42,3 +42,22 @@ function solution(survey, choices) {
   }
   return answer;
 }
+
+// 깔끔하게
+function solution(survey, choices) {
+  var answer = "";
+  //dictionary
+  const MBTI = {};
+  const type = ["RT", "CF", "JM", "AN"];
+  for (const i of type) {
+    i.split("").map((e) => (MBTI[e] = 0));
+  }
+  for (let i = 0; i < survey.length; i++) {
+    const [disagree, agree] = survey[i].split("");
+    MBTI[choices[i] < 4 ? disagree : agree] += Math.abs(choices[i] - 4);
+  }
+  for (const i of type) {
+    MBTI[i[0]] >= MBTI[i[1]] ? (answer += i[0]) : (answer += i[1]);
+  }
+  return answer;
+}
