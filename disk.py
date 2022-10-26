@@ -31,23 +31,32 @@ while True:
                     disk.pop(i)
                     break
                 elif disk[i][1]-disk[i][0] == size:
-                    disk[i][-1]=order[-1]
+                    disk[i][-1]=order[1]
                     break
                 else:
                     disk[i][-1]=order[1]
                     size-=disk[i][1]-disk[i][0]
 
     elif order[0]=="delete":
+        flag = False
         for i in disk:
             if i[-1]==order[-1]:
+                flag = True
                 i[-1]="free"
                 free_size+=i[1]-i[0]
+        if not flag:
+            print("error")
 
     elif order[0]=="show":
+        flag = False
         for i in disk:
             if i[-1]==order[-1]:
+                flag = True
                 print(i[0]-1,end=" ")
-
+        if flag:
+            print()
+        else:
+            print("error")
     elif order[0]=="compact":
         index = 0
         for i in range(len(disk)):
