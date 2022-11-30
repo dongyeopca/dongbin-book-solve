@@ -52,37 +52,42 @@ class BTS:
                     parent.right = None
             else:
                 self.root = None
+
         # 둘다 있을때
         elif current.left and current.right:
-            min = self.getMaximum(current.left)#왼쪽 서브트리의 최대값
-            self.delete(root,min.value)
-            current.value = min.value
+            max = self.getMaximum(current.left)#왼쪽 서브트리의 최대값
+            self.delete(root,max.value)
+            current.value = max.value
+        
         else:
             if current.left:
-                child = self.getMaximum(current.left)#왼쪽 서브트리의 최대값
+                max = self.getMaximum(current.left)#왼쪽 서브트리의 최대값
+                if current.left.value == max.value:
+                    if current != self.root:
+                        if current == parent.left:
+                            parent.left = max
+                        else:
+                            parent.right = max
+                    else:
+                        self.root = max
+                else:
+                    self.delete(root,max.value)
+                    current.value = max.value
             else:
-                #왼쪽 서브트리가 없을 경우=> 오른쪽 서브트리의 최소값
                 min = self.getMinimum(current.right)
                 if current.right.value == min.value:
-                    temp = Node(current.value)
-                    current.value = min.value
-                    current.left = temp 
-                    current.right = min.right
-                    self.delete(root,temp.value)
-                    return
+                    if current != self.root:
+                        if current == parent.right:
+                            parent.right = min
+                        else:
+                            parent.left = min
+                    else:
+                        self.root = min
                 else:
-                    child = min
                     self.delete(root,min.value)
                     current.value = min.value
-
-            if current != self.root:
-                if current == parent.left:
-                    parent.left = child
-                else:
-                    parent.right = child
-            else:
-                self.root = child
         return
+
     def getMaximum(self,curr):
         while curr.right:
             curr = curr.right
