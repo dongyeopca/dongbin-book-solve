@@ -55,9 +55,9 @@ class BTS:
 
         # 둘다 있을때
         elif current.left and current.right:
-            max = self.getMaximum(current.left)#왼쪽 서브트리의 최대값
-            self.delete(root,max.value)
-            current.value = max.value
+            min = self.getMinimum(current.right)#오른쪽 서브트리의 최소값
+            self.delete(root,min.value)
+            current.value = min.value
         
         else:
             if current.left:
@@ -74,7 +74,7 @@ class BTS:
                     self.delete(root,max.value)
                     current.value = max.value
             else:
-                min = self.getMinimum(current.right)
+                min = self.getMinimum(current.right)#오른쪽 서브트리의 최소값
                 if current.right.value == min.value:
                     if current != self.root:
                         if current == parent.right:
@@ -123,12 +123,11 @@ class BTS:
                 return
 
 bts = BTS()
-while True:
+n = int(input())
+answer = []
+for _ in range(n):
     order = input().split()
-    if order[0]=="quit":
-        break
-
-    elif order[0]=="+":
+    if order[0]=="+":
         if bts.root== None:
             bts.root = Node(order[1])
             continue
@@ -142,7 +141,7 @@ while True:
             continue
         bts.leaf(bts.root)
         if(bts.templist):
-            print(' '.join(sorted(bts.templist)))
+            answer.append(' '.join(sorted(bts.templist)))
         bts.templist = []
 
     elif order[0]=="depth":
@@ -151,9 +150,11 @@ while True:
             continue
         bts.depth(int(order[1]),bts.root,1)
         if(bts.templist):
-            print(' '.join(sorted(bts.templist)))
+            answer.append(' '.join(sorted(bts.templist)))
         else:
-            print("NO")
+            answer.append("NO")
         bts.templist = []
 
-    
+print('출력')
+for i in answer:
+    print(i)
