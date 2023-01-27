@@ -9,6 +9,17 @@ let input = fs
 let n = Number(input[0]);
 let a = input[1].split(' ').map(Number);
 
+// const makeCombination = function(arr,number){
+//     const results = [];
+//     if(number ==1) return arr.map(e=>[e]);
+//     arr.forEach((value,index,origin)=>{
+//         let rest = origin.slice(index+1)
+//         let combination = makeCombination(rest,number-1);
+//         let attached = combination.map(e=>[value,...e]);
+//         results.push(...attached)
+//     })
+//     return results
+// }
 const makePermutation = function (arr, number) {
   const results = [];
   if (number == 1) return arr.map((e) => [e]);
