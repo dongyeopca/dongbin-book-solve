@@ -1,4 +1,4 @@
-//최소공배수  const rcd = a*b/gcd(a,b)
+//최소공배수  const lcd = a*b/gcd(a,b)
 //최대공약수 const gcd = function(a,b){if(b==0) return return gcd(b,a%b)}
 function solution(arrayA, arrayB) {
   var answer = 0;

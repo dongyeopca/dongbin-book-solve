@@ -18,8 +18,6 @@ for _ in range(N):
     graph[connection[0]] = {}
     intersection[connection[0]] = len(connection[1:])/2
     temp.append(connection)
-
-print(intersection)
 #초기화
 for i in graph.keys():
     for j in graph.keys():
@@ -45,4 +43,4 @@ for i in graph:
         if graph[i][j]!= Infinity:
             answer = max(answer,graph[i][j]-intersection[j])
 
-print(answer)
+print(int(answer))

@@ -35,3 +35,4 @@ const recursion = (cur_value, depth) => {
 recursion(arr[0], 1);
 console.log(parseInt(Max_answer));
 console.log(parseInt(Min_answer));
+//-0 을 주의하자.

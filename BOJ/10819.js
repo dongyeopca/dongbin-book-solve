@@ -44,3 +44,15 @@ console.log(
     })
   )
 );
+
+function makePermutation(arr, n) {
+  let results = [];
+  if (n == 1) return arr.map((e) => [e]);
+  arr.forEach((value, index, origin) => {
+    let rest = [...arr.slice(0, index), ...arr.slice(index + 1)];
+    let permutation = makePermutation(rest, n - 1);
+    let attach = permutation.map((e) => [value, ...e]);
+  });
+  results.push(...attach);
+  return results;
+}

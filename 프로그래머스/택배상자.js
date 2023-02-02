@@ -16,7 +16,6 @@ function solution(order) {
         flag = true;
         break;
       } else {
-        console.log('?');
         break;
       }
     }

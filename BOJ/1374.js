@@ -92,3 +92,5 @@ for (const lecture of lectures) {
   counter = Math.max(counter, Rooms.size());
 }
 console.log(counter);
+
+
