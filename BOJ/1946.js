@@ -17,7 +17,6 @@ for (let i = 0; i < test; i++) {
     applier.push(input[readIndex].split(' ').map(Number));
     readIndex += 1;
   }
-  console.log(applier);
   //서류성적 높은 순으로 정렬
   //최대로 뽑고싶기 때문에 어학성적은 낮은순으로 정렬
   applier.sort((a, b) => {
