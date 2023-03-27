@@ -39,5 +39,3 @@ for _ in range(n-1):
     start.next.prev = start.prev
     start.prev.next = start.next
     print(start.index,end=" ")
-
-
